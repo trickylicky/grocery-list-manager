@@ -1,7 +1,10 @@
 const Products = ()=>{
+
+    
+
     return (
         <>
-        PRODUCTS
+        <input type="text" ></input>
         </>
     )
 
