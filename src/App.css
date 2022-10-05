@@ -2,10 +2,11 @@
   box-sizing: border-box;
   width: 100;
   text-align: center;
-  /* background-color: greenyellow; */
+ 
 }
 body{
   margin: 0;
+   background-color: greenyellow;
 }
 .nav{
   background-color: black;
