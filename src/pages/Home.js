@@ -9,8 +9,7 @@ const Home = ({foodData})=>{
                 
                 <img src={"https://images.pexels.com/photos/9706139/pexels-photo-9706139.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"} className="App-logo" alt="logo" />
                 <div>
-                <>
-                <table>
+                <table className="product-table">
                      <caption>Available products</caption>
                     <tr>
                     <th>Id</th>
@@ -27,8 +26,6 @@ const Home = ({foodData})=>{
                         </tr>
                     )}
                 </table>
-          
-        </>
             </div>
         </div>
     )
