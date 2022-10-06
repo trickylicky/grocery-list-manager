@@ -1,10 +1,11 @@
-const Products = ()=>{
+import Search from "../components/Search";
 
-    
+const Products = ({foodData})=>{
 
     return (
         <>
-        <input type="text" ></input>
+        <Search foodData={foodData}/>
+        {console.log(foodData)}
         </>
     )
 

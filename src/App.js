@@ -10,14 +10,18 @@ import { useState ,useEffect } from 'react';
 function App() {
 
   const [foodData , setFoodData] = useState([])
+  const [display ,setDisplay] = useState(true)
     
   useEffect(()=>{
-      fetch("http://localhost:3000/food")
+      fetch("https://groceries-list-manager.herokuapp.com/food")
       .then(response => response.json())
       .then(data=>{
         setFoodData(data)
       })
   },[])
+  function handleClick(){
+    display ? setDisplay(false): setDisplay(true)
+  }
     
   return (
     <div className="App">
@@ -25,9 +29,9 @@ function App() {
         <div className='container'>
         <Routes>
         
-          <Route path='/' element={<Home foodData={foodData}/>}/>
+          <Route path='/' element={<Home foodData={foodData} display={display} setDisplay={setDisplay} handleClick={handleClick}/>}/>
           <Route path='/About' element={<About/>}/>
-          <Route path='/Products' element={<Products/>}/>
+          <Route path='/Products' element={<Products foodData={foodData}/>}/>
         </Routes>
         </div>
     </div>
