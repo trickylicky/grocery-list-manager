@@ -3,30 +3,26 @@ import { useState } from 'react'
 
 
 
-export default function Search({foodData}) {
+export default function Search({foodData, displayProduct}) {
     const [query ,setQuery] = useState("")
   return (
     <>
     <input type="text" placeholder='search...' className='search' onChange={e=> setQuery(e.target.value)}/>
 
-    <table className='product-table'>
-        <caption>search products here</caption>
-        <tr>
-        <th>Food Products</th>
-        <th>price</th>  
-        </tr>
+    <div className='card'>
+        <h1>search products here</h1>
+       
         {foodData.filter(food=>
         food.food.toLowerCase().includes(query)
-        ).map(food=>(
-            <tr key={food.id}>
-
-                            <td>{food.food}</td>
-                            <td>{food.price}</td>
-                        </tr>
-        )
-            )
+        ).map((food)=>
+        <div key={food.id} className="card">
+        <div className="container" onClick={() => displayProduct(food.id)}>
+          <h4><b>{food.food}</b></h4>
+          <p>{food.price}</p>
+        </div>
+      </div>)
         }
-    </table>
+    </div>
     
     
     

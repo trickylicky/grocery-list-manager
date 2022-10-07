@@ -8,19 +8,27 @@ import { useState ,useEffect } from 'react';
 
 
 function App() {
-
+  const url = "https://groceries-list-manager.herokuapp.com/food"
   const [foodData , setFoodData] = useState([])
-  const [display ,setDisplay] = useState(true)
-    
+  const [display ,setDisplay] = useState(false)
+  const [text , setText] = ("")
+  
   useEffect(()=>{
-      fetch("https://groceries-list-manager.herokuapp.com/food")
+      fetch(url)
       .then(response => response.json())
       .then(data=>{
         setFoodData(data)
+        console.log(data)
       })
-  },[])
+  },[url])
   function handleClick(){
     display ? setDisplay(false): setDisplay(true)
+  }
+  function displayProduct(id){
+    // setText(foodData.filter(food => food.id.includes(id)))
+    // console.log(text);
+    console.log(id);
+    
   }
     
   return (
@@ -29,9 +37,9 @@ function App() {
         <div className='container'>
         <Routes>
         
-          <Route path='/' element={<Home foodData={foodData} display={display} setDisplay={setDisplay} handleClick={handleClick}/>}/>
+          <Route path='/' element={<Home foodData={foodData} display={display} setDisplay={setDisplay} handleClick={handleClick} displayProduct={displayProduct}/>}/>
           <Route path='/About' element={<About/>}/>
-          <Route path='/Products' element={<Products foodData={foodData}/>}/>
+          <Route path='/Products' element={<Products foodData={foodData} displayProduct={displayProduct} url={url}/>}/>
         </Routes>
         </div>
     </div>
