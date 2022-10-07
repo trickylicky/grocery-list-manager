@@ -1,8 +1,9 @@
 import { useState } from "react";
 
-const Products = ({url, displayProduct})=>{
+const Products = ({url , newId})=>{
     const [food , setFoodName] = useState("")
     const [price , setprice] = useState("")
+  
         function addProducts(e){
             e.preventDefault()
              
@@ -22,6 +23,7 @@ const Products = ({url, displayProduct})=>{
 
 
     return (
+        <>
         <form onSubmit={addProducts}>
         <h1>ADD PRODUCT AND THERE PRICES FROM YOUR LOCAL STORE</h1>
         <label htmlFor="foodName">
@@ -34,6 +36,15 @@ const Products = ({url, displayProduct})=>{
         </label>
         <input type='submit' value="Add Products"/>
         </form>
+
+        <h1>SELECTED ITEMS WILL BE DISPLAYED BELOW :</h1><ul>
+        {console.log(newId)}
+        {newId === null ? "select product": <>
+        {newId.food}
+        </>}
+            </ul>
+        </>
+        
     )
 
 }

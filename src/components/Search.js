@@ -16,7 +16,7 @@ export default function Search({foodData, displayProduct}) {
         food.food.toLowerCase().includes(query)
         ).map((food)=>
         <div key={food.id} className="card">
-        <div className="container" onClick={() => displayProduct(food.id)}>
+        <div className="container" onClick={() => displayProduct(food.id, food.food , food.price)}>
           <h4><b>{food.food}</b></h4>
           <p>{food.price}</p>
         </div>

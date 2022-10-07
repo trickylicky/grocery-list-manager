@@ -11,6 +11,8 @@ function App() {
   const url = "https://groceries-list-manager.herokuapp.com/food"
   const [foodData , setFoodData] = useState([])
   const [display ,setDisplay] = useState(false)
+  const [newId , setNewId] = useState(null)
+
  
   
   useEffect(()=>{
@@ -24,10 +26,10 @@ function App() {
   function handleClick(){
     display ? setDisplay(false): setDisplay(true)
   }
-  function displayProduct(id){
-    // setText(foodData.filter(food => food.id.includes(id)))
-    // console.log(text);
-    console.log(id);
+  function displayProduct(id ,food ,price){
+    const newFood = {id ,food ,price}
+    setNewId(newFood)
+    console.log(newFood);
     
   }
     
@@ -39,7 +41,7 @@ function App() {
         
           <Route path='/' element={<Home foodData={foodData} display={display} setDisplay={setDisplay} handleClick={handleClick} displayProduct={displayProduct}/>}/>
           <Route path='/About' element={<About/>}/>
-          <Route path='/Products' element={<Products foodData={foodData} displayProduct={displayProduct} url={url}/>}/>
+          <Route path='/Products' element={<Products foodData={foodData} url={url} newId={newId}/>}/>
         </Routes>
         </div>
     </div>
