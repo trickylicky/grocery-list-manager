@@ -11,7 +11,7 @@ function App() {
   const url = "https://groceries-list-manager.herokuapp.com/food"
   const [foodData , setFoodData] = useState([])
   const [display ,setDisplay] = useState(false)
-  const [text , setText] = ("")
+ 
   
   useEffect(()=>{
       fetch(url)
