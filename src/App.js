@@ -28,10 +28,15 @@ function App() {
   }
   function displayProduct(id ,food ,price){
     const newFood = {id ,food ,price}
-    setNewId(newFood)
-    console.log(newFood);
-    
-  }
+    //setBots(bots.map(bot => id ===bot.id ? {...bot, isCast:cast}:bot)
+   //{newId === null ? setNewId(newFood): setNewId()}
+
+   setNewId(newId === null ? newFood : {newFood , ...newId})
+    console.log(newId);
+   //{newId === null ? newFoodData = (foodData.map(foods => id ===foods.id ? {...newId ,foods}:null))}
+
+    // console.log(newId);
+   }
     
   return (
     <div className="App">

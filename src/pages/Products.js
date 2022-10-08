@@ -39,9 +39,9 @@ const Products = ({url , newId})=>{
 
         <h1>SELECTED ITEMS WILL BE DISPLAYED BELOW :</h1><ul>
         {console.log(newId)}
-        {newId === null ? "select product": <>
+        {/* {newId === null ? "select product": <>
         {newId.food} - {newId.price}
-        </>}
+        </>} */}
             </ul>
         </>
         
