@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Form from "../components/Form";
+import RenderFormList from "../components/RenderFormList";
+
 
 const Products = ({url})=>{
     const [food , setFoodName] = useState("")
@@ -26,7 +28,7 @@ const Products = ({url})=>{
     }
     function addList(e){
         e.preventDefault()
-        const dataList = {foodList , priceList}
+        const dataList = {foodList , priceList }
         setDatas([dataList , ...datas])
         console.log(datas);
     }
@@ -49,9 +51,7 @@ const Products = ({url})=>{
         valueFood={foodList}/>
 
         <h1>ADDED ITEMS WILL BE DISPLAYED BELOW :</h1>
-        <ul>
-        
-        </ul>
+        <RenderFormList datas={datas} />
         </>
         
     )
