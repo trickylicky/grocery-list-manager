@@ -1,49 +1,43 @@
 import { useState } from "react";
+import Form from "../components/Form";
 
-const Products = ({url , newId})=>{
+const Products = ({url})=>{
     const [food , setFoodName] = useState("")
     const [price , setprice] = useState("")
+    
 
-  
-        function addProducts(e){
-            e.preventDefault()
-             
-        const foodData = {food, price}
-        console.log(foodData)
-        //post data to the url provided
-        const requestOptions = {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(foodData)
-                        };
-                        fetch(url, requestOptions)
-                        .then(response => response.json())
-                        .then(data => console.log(data.id));
-        
-        }
+    function addProducts(e){
+        e.preventDefault()
+        const foodData = {food , price}
+    
+    console.log(foodData)
+    //post data to the url provided
+    const requestOptions = {
+                              method: 'POST',
+                              headers: { 'Content-Type': 'application/json' },
+                              body: JSON.stringify(foodData)      };
+                            fetch(url, requestOptions)
+                            .then(response => response.json())
+                            .then(data => console.log(data.id));
+
+}
 
 
     return (
         <>
-        <form onSubmit={addProducts}>
-        <h1>ADD PRODUCT AND THERE PRICES FROM YOUR LOCAL STORE</h1>
-        <label htmlFor="foodName">
-            foodName :<br/>
-            <input type="text" name="foodName" value={food} onChange={e=>setFoodName(e.target.value)}/><br/>
-        </label>
-        <label htmlFor="price">
-            price : <br/>
-            <input type="text" name="price" value={price} onChange={e=> setprice(e.target.value)}/><br/><br/>
-        </label>
-        <input type='submit' value="Add Products"/>
-        </form>
+        <Form onSubmission={addProducts} 
+        title ={"ADD PRODUCT AND THERE PRICES FROM YOUR LOCAL STORE"}
+        valueSetFoodName={setFoodName} 
+        valueSetPrice={setprice}  
+        valuePrice={price} 
+        valueFood={food} />
 
-        <h1>SELECTED ITEMS WILL BE DISPLAYED BELOW :</h1><ul>
-        {console.log(newId)}
-        {newId === null ? "select product":
-        <>{newId.length === 1 ? <li>{newId.food}-{newId.price}</li>:newId.shift.map(id=>
-            <li>{id.food}-{id.price}</li>
-        )}</>}
+        <Form title={"ADD A BUDGET LIST BELOW"}/>
+
+        <h1>ADDED ITEMS WILL BE DISPLAYED BELOW :</h1><ul>
+                <form>
+                    
+                </form>
             </ul>
         </>
         

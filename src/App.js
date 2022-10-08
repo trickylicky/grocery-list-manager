@@ -11,7 +11,7 @@ function App() {
   const url = "https://groceries-list-manager.herokuapp.com/food"
   const [foodData , setFoodData] = useState([])
   const [display ,setDisplay] = useState(false)
-  const [newId , setNewId] = useState(null)
+
 
  
   
@@ -22,18 +22,10 @@ function App() {
         setFoodData(data)
         console.log(data)
       })
-  },[url])
-  function displayProduct(id ,food ,price){
-    const newFood = {id ,food ,price}
-    //setBots(bots.map(bot => id ===bot.id ? {...bot, isCast:cast}:bot)
-   //{newId === null ? setNewId(newFood): setNewId()}
-
-    setNewId(newId === null ? newFood : {...newId ,...newFood} )
-    console.log(newId);
-   //{newId === null ? newFoodData = (foodData.map(foods => id ===foods.id ? {...newId ,foods}:null))}
-
-    // console.log(newId);
-   }
+  },[])
+  function handleClick(){
+    display ? setDisplay(false): setDisplay(true)
+  }
     
   return (
     <div className="App">
@@ -41,9 +33,9 @@ function App() {
         <div className='container'>
         <Routes>
         
-          <Route path='/' element={<Home foodData={foodData} display={display} setDisplay={setDisplay} handleClick={handleClick} displayProduct={displayProduct}/>}/>
+          <Route path='/' element={<Home foodData={foodData} display={display} setDisplay={setDisplay} handleClick={handleClick} />}/>
           <Route path='/About' element={<About/>}/>
-          <Route path='/Products' element={<Products foodData={foodData} url={url} newId={newId}/>}/>
+          <Route path='/Products' element={<Products url={url}/>}/>
         </Routes>
         </div>
     </div>
