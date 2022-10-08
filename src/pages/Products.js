@@ -37,7 +37,7 @@ const Products = ({url})=>{
     return (
         <>
         <Form onSubmission={addProducts} 
-        title ={"ADD PRODUCT AND THERE PRICES FROM YOUR LOCAL STORE"}
+        title ={"ADD PRODUCT AND THEIR PRICES FROM YOUR LOCAL STORE"}
         valueSetFoodName={setFoodName} 
         valueSetPrice={setprice}  
         valuePrice={price} 
