@@ -23,9 +23,6 @@ function App() {
         console.log(data)
       })
   },[url])
-  function handleClick(){
-    display ? setDisplay(false): setDisplay(true)
-  }
   function displayProduct(id ,food ,price){
     const newFood = {id ,food ,price}
     //setBots(bots.map(bot => id ===bot.id ? {...bot, isCast:cast}:bot)
