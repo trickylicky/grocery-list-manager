@@ -5,9 +5,9 @@ function RenderFormList({datas}) {
   return (
     <ul>
         {datas.length ===0 || datas.length ===1 ? "nothing to display": datas.map(data =>
-        <li className='card' key={lastId++}>
-          {data.foodList}  -- ${data.priceList}
-        </li>
+        <div className='card' key={lastId++}>
+          <h3>{data.foodList}</h3>  <p>${data.priceList}</p>
+        </div>
         
         )
         }

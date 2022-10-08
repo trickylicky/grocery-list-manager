@@ -43,6 +43,14 @@ body{
 .nav li:hover{
   background-color: #777;
 }
+.display{
+  width: 15pc;
+  height: 5pc;
+  font-size: 1.5pc;
+}
+.display :hover{
+  color: rgb(0, 0, 0);
+}
 
 .App-logo{
   width: 15pc;
