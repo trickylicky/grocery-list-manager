@@ -3,6 +3,7 @@ import { useState } from "react";
 const Products = ({url , newId})=>{
     const [food , setFoodName] = useState("")
     const [price , setprice] = useState("")
+
   
         function addProducts(e){
             e.preventDefault()
@@ -39,9 +40,10 @@ const Products = ({url , newId})=>{
 
         <h1>SELECTED ITEMS WILL BE DISPLAYED BELOW :</h1><ul>
         {console.log(newId)}
-        {/* {newId === null ? "select product": <>
-        {newId.food} - {newId.price}
-        </>} */}
+        {newId === null ? "select product":
+        <>{newId.length === 1 ? <li>{newId.food}-{newId.price}</li>:newId.shift.map(id=>
+            <li>{id.food}-{id.price}</li>
+        )}</>}
             </ul>
         </>
         

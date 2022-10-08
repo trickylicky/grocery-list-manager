@@ -31,7 +31,7 @@ function App() {
     //setBots(bots.map(bot => id ===bot.id ? {...bot, isCast:cast}:bot)
    //{newId === null ? setNewId(newFood): setNewId()}
 
-   setNewId(newId === null ? newFood : {newFood , ...newId})
+    setNewId(newId === null ? newFood : {...newId ,...newFood} )
     console.log(newId);
    //{newId === null ? newFoodData = (foodData.map(foods => id ===foods.id ? {...newId ,foods}:null))}
 
