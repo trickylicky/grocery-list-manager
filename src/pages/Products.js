@@ -4,6 +4,7 @@ import Form from "../components/Form";
 const Products = ({url})=>{
     const [food , setFoodName] = useState("")
     const [price , setprice] = useState("")
+    const [datas ,setDatas] = useState([])
     const [foodList ,setFoodList] =useState("")
     const [priceList , setPriceList] =useState("")
     
@@ -26,7 +27,8 @@ const Products = ({url})=>{
     function addList(e){
         e.preventDefault()
         const dataList = {foodList , priceList}
-        console.log(dataList)
+        setDatas([dataList , ...datas])
+        console.log(datas);
     }
 
 
