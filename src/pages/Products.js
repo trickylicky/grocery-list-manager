@@ -20,7 +20,7 @@ const Products = ({url})=>{
         const requestOptions = {
                               method: 'POST',
                               headers: { 'Content-Type': 'application/json' },
-                              body: JSON.stringify(foodData)      };
+                              body: JSON.stringify(foodData)};
                             fetch(url, requestOptions)
                             .then(response => response.json())
                             .then(data => console.log(data.id));
